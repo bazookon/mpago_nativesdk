@@ -1,0 +1,46 @@
+plugins {
+    id 'maven-publish'
+}
+
+group = 'com.github.bazookon'
+version = '5.0.0'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.bazookon'
+            artifactId = 'mpago-nativesk'
+            version = '5.0.0'
+
+            artifact("aar/nativesdk-5.0.0.aar") {
+                extension 'aar'
+            }
+
+            pom {
+                name = 'MercadoPago Native SDK'
+                description = 'MercadoPago Native SDK for Android'
+                url = 'https://github.com/bazookon/mpago_nativesk'
+                
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id = 'bazookon'
+                        name = 'Bazookon'
+                    }
+                }
+                
+                scm {
+                    connection = 'scm:git:git://github.com/bazookon/mpago_nativesk.git'
+                    developerConnection = 'scm:git:ssh://github.com/bazookon/mpago_nativesk.git'
+                    url = 'https://github.com/bazookon/mpago_nativesk'
+                }
+            }
+        }
+    }
+}
