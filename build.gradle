@@ -2,15 +2,37 @@ plugins {
     id 'maven-publish'
 }
 
+// Usar la versión de gradle.properties o la proporcionada por JitPack
+def getVersionName() {
+    return project.hasProperty('version') ? project.version : findProperty('VERSION_NAME') ?: '5.0.0'
+}
+
 group = 'com.github.bazookon'
-version = '5.0.0'
+version = getVersionName()
+
+// Tarea para asegurar que el archivo AAR existe
+task verifyAarFile {
+    doFirst {
+        def aarFile = file("aar/nativesdk-5.0.0.aar")
+        if (!aarFile.exists()) {
+            throw new GradleException("AAR file not found: ${aarFile.absolutePath}")
+        }
+    }
+}
+
+// Tarea assemble requerida por JitPack
+task assemble {
+    dependsOn verifyAarFile
+    group = 'build'
+    description = 'Assembles the outputs of this project.'
+}
 
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.github.bazookon'
-            artifactId = 'mpago-nativesk'
-            version = '5.0.0'
+            artifactId = 'mpago_nativesdk'
+            version = getVersionName()
 
             artifact("aar/nativesdk-5.0.0.aar") {
                 extension 'aar'
@@ -19,7 +41,7 @@ publishing {
             pom {
                 name = 'MercadoPago Native SDK'
                 description = 'MercadoPago Native SDK for Android'
-                url = 'https://github.com/bazookon/mpago_nativesk'
+                url = 'https://github.com/bazookon/mpago_nativesdk'
                 
                 licenses {
                     license {
@@ -36,9 +58,9 @@ publishing {
                 }
                 
                 scm {
-                    connection = 'scm:git:git://github.com/bazookon/mpago_nativesk.git'
-                    developerConnection = 'scm:git:ssh://github.com/bazookon/mpago_nativesk.git'
-                    url = 'https://github.com/bazookon/mpago_nativesk'
+                    connection = 'scm:git:git://github.com/bazookon/mpago_nativesdk.git'
+                    developerConnection = 'scm:git:ssh://github.com/bazookon/mpago_nativesdk.git'
+                    url = 'https://github.com/bazookon/mpago_nativesdk'
                 }
             }
         }
