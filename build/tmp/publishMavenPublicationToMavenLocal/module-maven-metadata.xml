@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.github.bazookon</groupId>
-  <artifactId>mpago-nativesk</artifactId>
+  <artifactId>mpago_nativesdk</artifactId>
   <versioning>
-    <latest>5.0.0</latest>
-    <release>5.0.0</release>
+    <latest>unspecified</latest>
+    <release>unspecified</release>
     <versions>
-      <version>5.0.0</version>
+      <version>unspecified</version>
     </versions>
-    <lastUpdated>20250710170305</lastUpdated>
+    <lastUpdated>20250710183816</lastUpdated>
   </versioning>
 </metadata>

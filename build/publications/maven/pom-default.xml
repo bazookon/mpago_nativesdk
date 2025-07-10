@@ -3,12 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.bazookon</groupId>
-  <artifactId>mpago-nativesk</artifactId>
-  <version>5.0.0</version>
+  <artifactId>mpago_nativesdk</artifactId>
+  <version>unspecified</version>
   <packaging>aar</packaging>
   <name>MercadoPago Native SDK</name>
   <description>MercadoPago Native SDK for Android</description>
-  <url>https://github.com/bazookon/mpago_nativesk</url>
+  <url>https://github.com/bazookon/mpago_nativesdk</url>
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
@@ -22,8 +22,8 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/bazookon/mpago_nativesk.git</connection>
-    <developerConnection>scm:git:ssh://github.com/bazookon/mpago_nativesk.git</developerConnection>
-    <url>https://github.com/bazookon/mpago_nativesk</url>
+    <connection>scm:git:git://github.com/bazookon/mpago_nativesdk.git</connection>
+    <developerConnection>scm:git:ssh://github.com/bazookon/mpago_nativesdk.git</developerConnection>
+    <url>https://github.com/bazookon/mpago_nativesdk</url>
   </scm>
 </project>

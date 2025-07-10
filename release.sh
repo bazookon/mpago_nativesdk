@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script para automatizar la creación de nuevas versiones del SDK
 
-set -e  # Salir si cualquier comando falla
+set -e # Salir si cualquier comando falla
 
 # Colores para output
 RED='\033[0;31m'
@@ -50,14 +50,14 @@ NO_PUSH=false
 # Procesar opciones
 for arg in "$@"; do
     case $arg in
-        --dry-run|-n)
-            DRY_RUN=true
-            shift
-            ;;
-        --no-push)
-            NO_PUSH=true
-            shift
-            ;;
+    --dry-run | -n)
+        DRY_RUN=true
+        shift
+        ;;
+    --no-push)
+        NO_PUSH=true
+        shift
+        ;;
     esac
 done
 
@@ -137,10 +137,10 @@ git tag -a $VERSION -m "Release version $VERSION - MercadoPago Native SDK"
 if [ "$NO_PUSH" = false ]; then
     log_info "Haciendo push de los cambios..."
     git push origin "$CURRENT_BRANCH"
-    
+
     log_info "Haciendo push del tag..."
     git push origin $VERSION
-    
+
     log_success "Cambios y tag enviados al repositorio remoto"
 else
     log_warning "Push deshabilitado. Para enviar manualmente:"

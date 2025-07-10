@@ -83,8 +83,8 @@ class MainActivity : AppCompatActivity() {
 
 ## 📦 Versiones
 
-| Versión | Fecha | Notas |
-|---------|-------|-------|
+| Versión   | Fecha      | Notas                          |
+| --------- | ---------- | ------------------------------ |
 | **5.0.0** | 2025-07-10 | Versión inicial del SDK nativo |
 
 ### Compatibilidad
