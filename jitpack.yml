@@ -1,0 +1,9 @@
+jdk:
+  - openjdk8
+before_install:
+  - echo "Preparing JitPack build environment"
+install:
+  - echo "Running custom install"
+  - ./gradlew publishToMavenLocal
+env:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.configureondemand=true"
