@@ -2,19 +2,19 @@ plugins {
     id 'maven-publish'
 }
 
-// Usar la versión de gradle.properties o la proporcionada por JitPack
-def getVersionName() {
-    return project.hasProperty('version') ? project.version : findProperty('VERSION_NAME') ?: '5.0.0'
-}
+// Resolver versión efectiva: usa -Pversion si viene de JitPack/CLI, si no VERSION_NAME
+def propVersion = project.findProperty('version')
+def effectiveVersion = (propVersion != null && propVersion.toString() != 'unspecified') 
+    ? propVersion.toString() 
+    : (findProperty('VERSION_NAME') ?: '5.0.0').toString()
 
 group = 'com.github.bazookon'
-version = getVersionName()
+version = effectiveVersion
 
 // Tarea para asegurar que el archivo AAR existe
 task verifyAarFile {
     doFirst {
-        def currentVersion = getVersionName()
-        def aarFile = file("aar/nativesdk-${currentVersion}.aar")
+    def aarFile = file("aar/nativesdk-${effectiveVersion}.aar")
         if (!aarFile.exists()) {
             throw new RuntimeException("AAR file not found: ${aarFile.absolutePath}")
         }
@@ -33,9 +33,9 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.github.bazookon'
             artifactId = 'mpago_nativesdk'
-            version = getVersionName()
+            version = effectiveVersion
 
-            artifact("aar/nativesdk-${getVersionName()}.aar") {
+            artifact("aar/nativesdk-${effectiveVersion}.aar") {
                 extension 'aar'
             }
 
