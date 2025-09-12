@@ -49,7 +49,7 @@ En el archivo `build.gradle` de tu módulo (app), agrega la dependencia:
 
 ```gradle
 dependencies {
-    implementation 'com.github.bazookon:mpago_nativesdk:5.0.0'
+    implementation 'com.github.bazookon:mpago_nativesdk:5.0.4'
     
     // O usar la última versión disponible:
     // implementation 'com.github.bazookon:mpago_nativesdk:latest'
@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity() {
 
 | Versión   | Fecha      | Notas                          |
 | --------- | ---------- | ------------------------------ |
+| **5.0.4** | 2025-09-02 | Correcciones y mejoras menores |
 | **5.0.0** | 2025-07-10 | Versión inicial del SDK nativo |
 
 ### Compatibilidad
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 ```
 mpago_nativesdk/
 ├── aar/
-│   └── nativesdk-5.0.0.aar      # Archivo AAR del SDK
+│   └── nativesdk-5.0.4.aar      # Archivo AAR del SDK
 ├── build.gradle                  # Configuración de Gradle para publicación
 ├── gradle.properties            # Propiedades del proyecto (versión, etc.)
 ├── settings.gradle              # Configuración del proyecto

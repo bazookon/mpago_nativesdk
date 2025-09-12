@@ -13,9 +13,10 @@ version = getVersionName()
 // Tarea para asegurar que el archivo AAR existe
 task verifyAarFile {
     doFirst {
-        def aarFile = file("aar/nativesdk-5.0.0.aar")
+        def currentVersion = getVersionName()
+        def aarFile = file("aar/nativesdk-${currentVersion}.aar")
         if (!aarFile.exists()) {
-            throw new GradleException("AAR file not found: ${aarFile.absolutePath}")
+            throw new RuntimeException("AAR file not found: ${aarFile.absolutePath}")
         }
     }
 }
@@ -34,7 +35,7 @@ publishing {
             artifactId = 'mpago_nativesdk'
             version = getVersionName()
 
-            artifact("aar/nativesdk-5.0.0.aar") {
+            artifact("aar/nativesdk-${getVersionName()}.aar") {
                 extension 'aar'
             }
 
