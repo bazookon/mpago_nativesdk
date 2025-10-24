@@ -4,7 +4,7 @@ before_install:
   - echo "Preparing JitPack build environment"
 install:
   - echo "Running custom install"
-  - ./gradlew -Pversion=$TAG assemble
-  - ./gradlew -Pversion=$TAG publishToMavenLocal
+  - ./gradlew -Pversion=$VERSION assemble
+  - ./gradlew -Pversion=$VERSION publishToMavenLocal
 env:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.configureondemand=true"
