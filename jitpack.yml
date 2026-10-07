@@ -1,10 +1,10 @@
 jdk:
-  - openjdk11
+  - openjdk17
 before_install:
   - echo "Preparing JitPack build environment"
+  - echo "JAVA_HOME=$JAVA_HOME"
+  - ls -la /usr/lib/jvm || true
 install:
-  - echo "Running custom install"
-  - ./gradlew -Pversion=$VERSION assemble
-  - ./gradlew -Pversion=$VERSION publishToMavenLocal
+  - bash jitpack-install.sh
 env:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.configureondemand=true"
